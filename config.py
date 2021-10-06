@@ -1,0 +1,1 @@
+CHROME_PROFILE_PATH = "user-data-dir=C:\\Users\\<enter-user-name>\\AppData\\Local\\Google\\Chrome\\User Data\\Auto Attend"
