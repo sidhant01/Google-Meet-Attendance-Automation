@@ -10,4 +10,4 @@ Steps for using this tool:
 - Go to meet.google.com and give chrome access to your mic and webcam.
 - Close this browser window and run main.py.
 
-[![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
+# [![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
