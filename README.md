@@ -7,7 +7,7 @@ Steps for using this tool:
 - Write the location of chrome data directory in the config.py file.
 - Run initialize.py and scan the QR code using whatsapp on you mobile.
 - Login into google chrome with your school email in this broweser window.
-- Go to meet.google.com and give chrome access to your mic and webcam.
+- Go to https://meet.google.com and give chrome access to your mic and webcam.
 - Close this browser window and run main.py.
 
 # [![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
