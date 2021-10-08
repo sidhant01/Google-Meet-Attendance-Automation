@@ -1,1 +1,1 @@
-python "enter-path-to-main.py" pause
+python "<enter-path-to-main.py>" pause
