@@ -1,0 +1,1 @@
+python "enter-path-to-main.py" pause
