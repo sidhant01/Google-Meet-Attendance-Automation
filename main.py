@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from pygame.time import Clock
 from datetime import datetime
 from datetime import timedelta
+import re
 import config
 import time
 import sys
@@ -51,6 +52,12 @@ def sendMessage(message):
 		EC.presence_of_element_located(
 			(By.XPATH, '//textArea[@jsname="YPqjbf"][@aria-label="Send a message to everyone"]')))
 	textArea.send_keys(Message + Keys.ENTER)
+
+
+def Find(string):
+    regex = r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"
+    url = re.findall(regex,string)      
+    return [x[0] for x in url]
 
 
 CHROME_PROFILE_PATH = config.CHROME_PROFILE_PATH
@@ -105,7 +112,8 @@ while True:
 	recent = messages[-1].text
 
 	if "meet.google.com" in recent:
-		joinMeet(recent)
+		link = Find(recent)[0]
+		joinMeet(link)
 
 		if Message != None:
 			sendMessage(Message)
