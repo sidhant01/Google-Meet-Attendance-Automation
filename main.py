@@ -94,6 +94,8 @@ startTime = datetime.now()
 timeStamps = [(startTime + timedelta(minutes=WhatsappRefreshTime*x)) for x in range(1, n+1)]
 i = 0
 
+dateToday = datetime.now().strftime("%Y-%m-%d")
+
 while True:
 
 	clock.tick(4)
@@ -108,11 +110,17 @@ while True:
 		messageArea.send_keys("time is " + now.strftime("%H:%M:%S") + ", ")
 		i += 1
 
-	messages = driver.find_elements_by_xpath('//div[@class="_1Gy50"]')
+	messages = driver.find_elements_by_xpath('//div[@class="_2jGOb copyable-text"]')
 	recent = messages[-1].text
+	messageDateTime = messages[-1].get_attribute('data-pre-plain-text')
+	match = re.search(r'\d{2}/\d{2}/\d{4}', messageDateTime)
+	messageDate =  datetime.strptime(match.group(), '%d/%m/%Y').date()
+	messageDate = messageDate.strftime("%Y-%m-%d")
 
-	if "meet.google.com" in recent:
+	if "meet.google.com" in recent and dateToday == messageDate:
 		link = Find(recent)[0]
+		if not link.startswith('https') and not link.startswith('http'):
+			link = 'https://' + link
 		joinMeet(link)
 
 		if Message != None:
